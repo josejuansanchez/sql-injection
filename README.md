@@ -12,6 +12,7 @@
   - [Ejemplo 4. Obtener las columnas de la tabla `users`](#ejemplo-4-obtener-las-columnas-de-la-tabla-users)
   - [Ejemplo 5. Obtener el listado de todos los usuarios y sus contraseñas](#ejemplo-5-obtener-el-listado-de-todos-los-usuarios-y-sus-contraseñas)
 - [Blind SQL Injection](#blind-sql-injection)
+  - [Ejemplo 1](#ejemplo1)
 - [Referencias](#referencias)
 
 ## Introducción
@@ -244,7 +245,7 @@ aplicación vulnerable y analiza las respuestas para determinar si la consulta e
 verdadera o falsa. Aunque el proceso para obtener información es lento, esta
 técnica permite a un atacante extraer información de forma indirecta.
 
-### Ejemplo 1
+### Ejemplo 1
 
 En este ejemplo vamos a seleccionar la opción `SQL Injection (Blind)` del menú
 principal, donde nos aparecerá un formulario con un campo para introducir el
