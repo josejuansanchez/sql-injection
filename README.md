@@ -12,7 +12,7 @@
   - [Ejemplo 4. Obtener las columnas de la tabla `users`](#ejemplo-4-obtener-las-columnas-de-la-tabla-users)
   - [Ejemplo 5. Obtener el listado de todos los usuarios y sus contraseñas](#ejemplo-5-obtener-el-listado-de-todos-los-usuarios-y-sus-contraseñas)
 - [Blind SQL Injection](#blind-sql-injection)
-  - [Ejemplo 1](#ejemplo1)
+  - [Ejemplo 1](#ejemplo-1)
 - [Referencias](#referencias)
 
 ## Introducción
