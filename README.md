@@ -98,7 +98,7 @@ $pass = md5( $pass );
 $query  = "SELECT * FROM `users` WHERE user = '$user' AND password = '$pass';";
 ```
 
-Podemos hacer un ataque de tipo SQL Injection introduciendo el siguiente valor
+Podemos hacer un ataque de tipo _SQL Injection_ introduciendo el siguiente valor
 en el campo `username` del formulario:
 
 ```
@@ -150,7 +150,7 @@ $id = $_REQUEST[ 'id' ];
 $query  = "SELECT first_name, last_name FROM users WHERE user_id = '$id';";
 ```
 
-Podemos hacer un ataque de tipo SQL Injection para obtener el listado de todos
+Podemos hacer un ataque de tipo _SQL Injection_ para obtener el listado de todos
 los usuarios que existen en la base de datos, introduciendo el siguiente valor
 en el campo `id` del formulario:
 
@@ -195,8 +195,8 @@ Como la consulta que se ejecta en el código la aplicación devuelve dos columna
 la nueva consulta que vamos a inyectar después del operador `UNION` también
 tiene que devolver dos columnas.
 
-Para hacer el ataque de tipo SQL Injection que nos permita obtener el listado de
-todas las tablas de la base de datos de la aplicación, introduciremos el
+Para hacer el ataque de tipo _SQL Injection_ que nos permita obtener el listado
+de todas las tablas de la base de datos de la aplicación, introduciremos el
 siguiente valor en el campo `id` del formulario:
 
 ```
@@ -208,8 +208,8 @@ siguiente valor en el campo `id` del formulario:
 Una vez que hemos obtenido el listado de todas las tablas de la base de datos de
 la aplicación, veremos que existe una tabla llamada `users`.
 
-Ahora vamos a realizar un ataque de tipo SQL Injection para obtener las columnas
-de la tabla `users`.
+Ahora vamos a realizar un ataque de tipo _SQL Injection_ para obtener las
+columnas de la tabla `users`.
 
 El valor que tendremos que introducir en el campo `id` del formulario es el
 siguiente:
@@ -235,7 +235,32 @@ formulario es el siguiente:
 
 ## Blind SQL Injection
 
-_TODO: En progreso..._
+El ataque de tipo _Blind SQL Injection_ es una técnica que se utiliza cuando una
+aplicación es vulnerable a ataques de tipo SQL Injection pero está configurada
+para no mostrar los resultados de las consultas que se le están inyectando.
+
+En este caso, el atacante envía consultas SQL a la base de datos de la
+aplicación vulnerable y analiza las respuestas para determinar si la consulta es
+verdadera o falsa. Aunque el proceso para obtener información es lento, esta
+técnica permite a un atacante extraer información de forma indirecta.
+
+### Ejemplo 1
+
+En este ejemplo vamos a seleccionar la opción `SQL Injection (Blind)` del menú
+principal, donde nos aparecerá un formulario con un campo para introducir el
+identificador de un usuario y buscarlo en la base de datos.
+
+Para comprobar si la aplicación es vulnerable a un ataque de tipo _Blind SQL
+Injection_ vamos a introducir el siguiente valor en el campo `id` del formulario:
+
+```
+1' OR 1 = 1 #
+```
+
+En este caso, la aplicación no nos devuelve el listado de todos los usuarios que
+existen en la tabla `users`, pero nos devuelve un mensaje de éxito informándonos
+que el usuario con el identificador `1` existe en la base de datos. Esto quiere
+decir que esta aplicaicón es vulnerable a un ataque de tipo _Blind SQL Injection_.
 
 ## Referencias
 
@@ -243,8 +268,8 @@ _TODO: En progreso..._
 - [SQL Injection][2]. Wikipedia.
 - [SQL injection cheat sheet][3]. Invicty Security.
 - [SQL Injection][4]. OWASP.
-- [Bobby Tables: A guide to preventing SQL injection][5]
 - [Blind SQL Injection][6]. OWASP.
+- [Bobby Tables: A guide to preventing SQL injection][5]
 
 
 [1]: https://github.com/digininja/DVWA
