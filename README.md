@@ -1,4 +1,4 @@
-# dvwa-docker-compose
+# sql-injection
 
 - [Introducción](#introducción)
 - [Cómo desplegar la aplicación](#cómo-desplegar-la-aplicación)
@@ -25,7 +25,6 @@ con algunas de las vulnerabilidad más comunes que pueden aparecer en las
 aplicaciones web.
 
 Puede encontrar más información en el [repositorio oficial del proyecto DVWA][1].
-
 
 ## Cómo desplegar la aplicación
 
