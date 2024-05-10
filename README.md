@@ -48,12 +48,13 @@ docker compose down -v
 
 ## Credenciales por defecto
 
+![](images/00.png)
+
 Las credenciales por defecto para acceder a la aplicación son:
 
 - username: `admin`
 - password: `password`
 
-![](images/00.png)
 
 ## Creación de la base de datos
 
@@ -100,6 +101,8 @@ donde nos aparecerá un formulario con dos campos: `username` y `password`.
 Al final de la página nos aparece un botón con el texto `View Source` que nos
 permite ver el código fuente de la página.
 
+En este repositorio se ha incluido el código fuente que utiliza el formulario del ejemplo, para que pueda estudiarlo con detalle. [Ver el código fuente del archivo `brute_source_low.php`](vulnerabilities/brute_source_low.php). 
+
 El código fuente que utiliza esta aplicación para recibir los parámetros del
 formulario y construir la consulta SQL es el siguiente:
 
@@ -131,6 +134,8 @@ SELECT * FROM `users` WHERE user = 'admin' #' AND password = ...
 Tenga en cuenta que todo lo que aparezca después del carácter `#` será
 considerado como un comentario y no se ejecutará.
 
+![](images/05.png)
+
 También puede comentar el resto de la consulta utilizando dos guiones **seguidos
 de un espacio**, por lo tanto, si enviamos el siguiente valor en el campo
 `username` del formulario también podríamos hacer un ataque de tipo SQL
@@ -147,9 +152,11 @@ de datos será la siguiente:
 SELECT * FROM `users` WHERE user = 'admin' -- ' AND password = ...
 ```
 
+![](images/06.png)
+
 ## Ejemplo 2. Obtener el listado de todos los usuarios
 
-![](images/05.png)
+![](images/07.png)
 
 En este ejemplo vamos a seleccionar la opción `SQL Injection` del menú
 principal, donde nos aparecerá un formulario con un campo para introducir el
@@ -157,6 +164,8 @@ identificador de un usuario y buscarlo en la base de datos.
 
 Al final de la página nos aparece un botón con el texto `View Source` que nos
 permite ver el código fuente de la página.
+
+En este repositorio se ha incluido el código fuente que utiliza el formulario del ejemplo, para que pueda estudiarlo con detalle. [Ver el código fuente del archivo `brute_source_low.php`](vulnerabilities/sqli_source_low.php).
 
 El código fuente que utiliza esta aplicación para recibir el parámetro del
 formulario y construir la consulta SQL es el siguiente:
@@ -186,9 +195,11 @@ SELECT first_name, last_name FROM users WHERE user_id = '1' OR 1 = 1 #';
 Tenga en cuenta que todo lo que aparezca después del carácter `#` será
 considerado como un comentario y no se ejecutará.
 
+![](images/08.png)
+
 ### Ejemplo 3. Obtener el listado de todas las tablas de la base de datos
 
-![](images/05.png)
+![](images/07.png)
 
 En este ejemplo vamos a continuar con el formulario que aparece en la opción
 `SQL Injection` del menú principal, donde nos aparece un campo para introducir
@@ -223,9 +234,11 @@ siguiente valor en el campo `id` del formulario:
 ' UNION SELECT table_name,NULL FROM information_schema.tables #
 ```
 
+![](images/09.png)
+
 ### Ejemplo 4. Obtener las columnas de la tabla `users`
 
-![](images/05.png)
+![](images/07.png)
 
 Una vez que hemos obtenido el listado de todas las tablas de la base de datos de
 la aplicación, veremos que existe una tabla llamada `users`.
@@ -240,9 +253,11 @@ siguiente:
 ' UNION SELECT column_name, NULL FROM information_schema.columns WHERE table_name= 'users' #
 ```
 
+![](images/10.png)
+
 ### Ejemplo 5. Obtener el listado de todos los usuarios y sus contraseñas
 
-![](images/05.png)
+![](images/07.png)
 
 Una vez que hemos consultado cuáles son las columnas de la tabla `users`,
 observamos que exsiten dos columnas con los nombres de `user` y `password`.
@@ -257,6 +272,8 @@ formulario es el siguiente:
 ' UNION SELECT user, password FROM users #
 ```
 
+![](images/11.png)
+
 ## Blind SQL Injection
 
 El ataque de tipo _Blind SQL Injection_ es una técnica que se utiliza cuando una
@@ -270,7 +287,7 @@ técnica permite a un atacante extraer información de forma indirecta.
 
 ### Ejemplo 1
 
-![](images/06.png)
+![](images/12.png)
 
 En este ejemplo vamos a seleccionar la opción `SQL Injection (Blind)` del menú
 principal, donde nos aparecerá un formulario con un campo para introducir el
@@ -288,6 +305,8 @@ existen en la tabla `users`, pero nos devuelve un mensaje de éxito informándon
 que el usuario con el identificador `1` existe en la base de datos. Esto quiere
 decir que esta aplicación es vulnerable a un ataque de tipo _Blind SQL
 Injection_.
+
+![](images/13.png)
 
 ## Referencias
 
