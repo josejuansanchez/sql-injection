@@ -53,12 +53,24 @@ Las credenciales por defecto para acceder a la aplicación son:
 - username: `admin`
 - password: `password`
 
+![](images/00.png)
+
 ## Creación de la base de datos
 
 La primera vez que acceda a la aplicación tendrá que crear la base datos
-pulsando sobre el botón `Create / Reset Database`.
+siguiendo estos pasos:
 
-Este paso puede realizarlo en cualquier momento para eliminar la base de datos
+1. Seleccione en el menú principal que aparece a la izquierda la opción `Setup /
+Reset DB`. 
+
+![](images/01.png)
+
+2. Una vez que esté en la página de configuración de la base de datos, pulse
+   sobre el botón `Create / Reset Database` que aparece al final de la página.
+
+![](images/02.png)
+
+Estos pasos puede realizarlos siempre que quiera eliminar la base de datos
 actual y volver a crearla con los datos por defecto.
 
 ## Configuración del nivel de seguridad
@@ -67,6 +79,8 @@ La aplicación permite configurar el nivel de seguridad desde el apartado `DVWA
 Security` del menú principal.
 
 Existen cuatro niveles de seguridad: `Low`, `Medium`, `High` y `Impossible`.
+
+![](images/03.png)
 
 Los ejemplos que se muestran a continuación son para el nivel de seguridad
 `Low`.
@@ -77,6 +91,8 @@ De todos los tipos de vulnerabilidades que existen en la aplicación vamos a
 centrarnos en las de tipo [SQL Injection][2].
 
 ### Ejemplo 1. Hacer login sin conocer el password
+
+![](images/04.png)
 
 En este ejemplo vamos a seleccionar la opción `Brute Force` del menú principal,
 donde nos aparecerá un formulario con dos campos: `username` y `password`.
@@ -133,6 +149,8 @@ SELECT * FROM `users` WHERE user = 'admin' -- ' AND password = ...
 
 ## Ejemplo 2. Obtener el listado de todos los usuarios
 
+![](images/05.png)
+
 En este ejemplo vamos a seleccionar la opción `SQL Injection` del menú
 principal, donde nos aparecerá un formulario con un campo para introducir el
 identificador de un usuario y buscarlo en la base de datos.
@@ -170,6 +188,8 @@ considerado como un comentario y no se ejecutará.
 
 ### Ejemplo 3. Obtener el listado de todas las tablas de la base de datos
 
+![](images/05.png)
+
 En este ejemplo vamos a continuar con el formulario que aparece en la opción
 `SQL Injection` del menú principal, donde nos aparece un campo para introducir
 el identificador de un usuario y buscarlo en la base de datos.
@@ -205,6 +225,8 @@ siguiente valor en el campo `id` del formulario:
 
 ### Ejemplo 4. Obtener las columnas de la tabla `users`
 
+![](images/05.png)
+
 Una vez que hemos obtenido el listado de todas las tablas de la base de datos de
 la aplicación, veremos que existe una tabla llamada `users`.
 
@@ -219,6 +241,8 @@ siguiente:
 ```
 
 ### Ejemplo 5. Obtener el listado de todos los usuarios y sus contraseñas
+
+![](images/05.png)
 
 Una vez que hemos consultado cuáles son las columnas de la tabla `users`,
 observamos que exsiten dos columnas con los nombres de `user` y `password`.
@@ -246,6 +270,8 @@ técnica permite a un atacante extraer información de forma indirecta.
 
 ### Ejemplo 1
 
+![](images/06.png)
+
 En este ejemplo vamos a seleccionar la opción `SQL Injection (Blind)` del menú
 principal, donde nos aparecerá un formulario con un campo para introducir el
 identificador de un usuario y buscarlo en la base de datos.
@@ -260,7 +286,8 @@ Injection_ vamos a introducir el siguiente valor en el campo `id` del formulario
 En este caso, la aplicación no nos devuelve el listado de todos los usuarios que
 existen en la tabla `users`, pero nos devuelve un mensaje de éxito informándonos
 que el usuario con el identificador `1` existe en la base de datos. Esto quiere
-decir que esta aplicaicón es vulnerable a un ataque de tipo _Blind SQL Injection_.
+decir que esta aplicación es vulnerable a un ataque de tipo _Blind SQL
+Injection_.
 
 ## Referencias
 
